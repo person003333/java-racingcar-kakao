@@ -37,4 +37,13 @@ public class Car {
     public int getCount() {
         return count;
     }
+
+    public void race() {
+        Random random = new Random();
+        random.setSeed(System.currentTimeMillis());
+
+        if (random.nextInt(9) > 3) {
+            move();
+        }
+    }
 }
