@@ -46,4 +46,8 @@ public class Car {
             move();
         }
     }
+
+    public int getCnt() {
+        return cnt;
+    }
 }

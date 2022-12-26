@@ -77,4 +77,17 @@ public class RacingTest {
         String actual = out.toString();
         assertEquals(actual, "pobi, honux가 최종 우승했습니다.\n");
     }
+
+    @Test
+    void raceMaxCntTest() {
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        Race race = new Race("pobi,crong,honux");
+        race.carInput(race.nameSplit());
+        race.getCars().get(0).move();
+        race.getCars().get(0).move();
+        race.getCars().get(0).move();
+        assertEquals(race.raceMaxCnt(), 3);
+    }
 }
