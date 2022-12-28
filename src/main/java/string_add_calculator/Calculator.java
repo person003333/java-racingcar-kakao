@@ -10,7 +10,7 @@ import static java.lang.Integer.parseInt;
 
 public class Calculator {
 
-    private String[] tokens;
+    String[] tokens;
 
     public Calculator(String[] tokens) {
         this.tokens = tokens;
