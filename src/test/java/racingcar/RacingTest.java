@@ -17,7 +17,7 @@ public class RacingTest {
     @CsvSource(value = {"Pobi;true",
                         "Ppoobbii;false"}, delimiter = ';')
     void verifyNameTest(String input, String expected){
-        Race race = new Race();
+        Race race = new Race("pobi,crong,honux");
         String result = "false";
         try {
             race.verifyName(input);
@@ -40,22 +40,22 @@ public class RacingTest {
         System.setOut(new PrintStream(out));
 
         Race race = new Race("pobi,crong,honux");
-        race.carInput(race.nameSplit());
+        race.carNamesCheck(race.nameSplit());
         race.printRace();
         String actual = out.toString();
-        assertEquals(actual,"pobi : \n" +
-                "crong : \n" +
-                "honux : \n");
+        assertEquals(actual,"pobi : -\n" +
+                "crong : -\n" +
+                "honux : -\n\n");
     }
 
     @Test
     void raceMaxCntTest() {
         Race race = new Race("pobi,crong,honux");
-        race.carInput(race.nameSplit());
+        race.carNamesCheck(race.nameSplit());
         race.getCars().get(0).move();
         race.getCars().get(0).move();
         race.getCars().get(0).move();
-        assertEquals(race.raceMaxCnt(), 3);
+        assertEquals(race.raceMaxCnt(), 4);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class RacingTest {
         System.setOut(new PrintStream(out));
 
         Race race = new Race("pobi,crong,honux");
-        race.carInput(race.nameSplit());
+        race.carNamesCheck(race.nameSplit());
         race.getCars().get(0).move();
         race.getCars().get(0).move();
         race.getCars().get(0).move();
